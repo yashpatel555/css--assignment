@@ -1,0 +1,413 @@
+                                              *  CSS Selectors & Styling *
+
+
+Question 1:: What is a CSS selector? Provide examples of element, class, and ID selectors.
+ANS ==>A CSS selector is a pattern used to select and style HTML elements. It tells the browser which elements the CSS rules should apply to.
+
+EXAMPLE ==>(1) element selector
+               // Targets all elements of a specific type.//
+                html.
+               <p>This is a paragraph.</p>
+                css.
+               p {
+                    color: green;
+                 }
+
+            (2) class selector
+               // Targets elements with a specific class attribute. Use a . before the class name.//
+                html.
+                <div class="note">This is a note.</div>
+                <p class="note">This is another note.</p>
+                css.
+                .note {
+                 background-color: #ffffcc;
+                 padding: 10px;
+                }
+
+            (3) id selector
+                //Targets one specific element with a unique id. Use # before the ID name.//
+                html.
+                <h1 id="header">Welcome!</h1>
+                css.
+                #header {
+                font-size: 32px;
+                color: navy;
+                }
+
+Question 2  : Explain the concept of CSS specificity. How do conflicts between multiple styles get resolved?            
+ANS      ==>  CSS specificity is a system that determines which CSS rule is applied when multiple rules target the samehtml      element. When there’s a conflict, the more specific rule wins.
+🔹 How Specificity Works
+Each selector has a specificity value made up of 4 parts:
+
+| Selector Type                            | Specificity Value     |
+|------------------------------------------|-----------------------|
+| Inline styles                            | 1000                  |
+| ID selector (`#id`)                      | 0100                  |
+| Class, pseudo-class (`.class`, `:hover`) | 0010                  |
+| Element/tag (`div`, `p`)                 | 0001                  |
+
+ >  When multiple rules apply to the same element, the browser compares their specificity scores and applies the one with the highest value.
+
+ Question 3: What is the difference between internal, external, and inline CSS? Discuss the
+advantages and disadvantages of each approach.
+ANS   ==> CSS can be applied to HTML in three ways: internal, external, and inline. Here's how each works, along with their advantages and disadvantages:
+
+  (1) inline css
+
+        CSS is written directly inside an HTML element using the style attribute.
+
+    Advantages: 
+    * Quick and easy for small changes.
+    * Useful for testing or overriding styles.
+
+     Disadvantages:
+    * Not reusable.
+    * Makes HTML messy and harder to maintain.
+    * Hard to apply styles consistently.
+
+  (2) internal css 
+            CSS is written inside a <style> tag within the <head> of the HTML document.
+      
+      Advantages: 
+      * Useful for single-page projects.
+      * Keeps CSS separate from HTML elements.
+
+      Disadvantages:
+      * Not reusable across multiple pages.
+      * Can make the HTML file large and cluttered.
+
+  (3) external css
+           CSS is placed in a separate .css file and linked using the <link> tag.
+    
+      Advantages:
+      * Clean, reusable, and maintainable.
+      * Can be cached by browsers for better performance.
+      * Recommended for large or multi-page websites.
+
+      Disadvantages:
+      * Requires an extra HTTP request.
+      * No styles visible if the CSS file fails to load.
+
+====================================================================================================================================================================================================================================================================
+      
+                                             *  CSS Box Model *
+
+
+Question 1: Explain the CSS box model and its components (content, padding, border,
+            margin). How does each affect the size of an element?
+
+ANS     ==>The CSS Box Model is the fundamental concept that defines how elements are structured and sized on a web page. Every   element is treated as a rectangular box, and this box consists of four parts:
+           1. Content:-
+             * The actual text, image, or other content inside the element.
+
+             * Size is set using width and height.
+           2. Padding:-
+             * Space inside the element, between the content and the border.
+
+             * Increases the space around the content, but inside the box
+           3. Border:-
+             * The edge that wraps around the padding (and content).
+
+             * Can be styled with color, width, and type (solid, dashed, etc.).
+           4. Margin:-
+             * Space outside the border, separating this element from others.
+
+             * Does not affect the internal size but affects positioning. 
+
+    ==> How It Affects Size (Default Behavior): 
+              By default, the total size of an element is:
+              Total Width = Content + Padding + Border + Margin
+              Total Height = Content + Padding + Border + Margin
+ 
+
+
+Question 2: What is the difference between border-box and content-box box-sizing in
+            CSS?Which is the default?
+ANS    ==> In CSS, the box-sizing property controls how the total width and height of an element are calculated.
+               
+               1. content-box (Default) :-
+                  * Only the content area is affected by width and height.
+
+                  * Padding and border are added outside the content, increasing the total size.
+                2. border-box
+                  * The width and height include content, padding, and border.
+
+                  * Makes layout easier to manage — total size is predictable.  
+
+====================================================================================================================================================================================================================================================================
+                      
+                                                 *  CSS Flexbox  *
+
+
+ Question 1: What is CSS Flexbox, and how is it useful for layout design? Explain the terms
+            flex-container and flex-item.  
+ ANS    ==>CSS Flexbox is a CSS3 layout model designed to help you create responsive and efficient arrangements of elements within a container. It simplifies complex layouts and makes it easier to align items, distribute space, and adapt to different screen sizes without using floats or positioning.    
+        * Why is Flexbox Useful:-
+              *  Responsive design: Elements adjust their size and position based on the screen size.
+
+              *  Easy alignment: Vertically and horizontally align items with simple properties.
+
+              *  Dynamic sizing: Items can grow or shrink to fill space.
+
+              *  Order control: You can change the visual order of items without changing the HTML structure.                                          
+
+            Flex-container:-
+                   This is the parent element that contains flex items. You make an element a flex-container by setting its display property to flex or inline-flex.
+
+             Flex-item  :-
+                   These are the direct child elements of the flex-container. They automatically become flexible and can be controlled using various Flexbox properties like flex-grow, flex-shrink, flex-basis, align-self, etc.
+
+ Question 2: Describe the properties justify-content, align-items, and flex-direction used
+             inFlexbox.
+ ANS     ==> Here’s a clear explanation of the Flexbox properties: justify-content, align-items, and flex-direction all used to control layout and alignment inside a flex-container.
+              1. flex-direction :-
+                     What it does:
+                               * Defines the main axis along which flex items are placed.
+
+                    * Possible values:
+
+                               * row (default): Items are laid out left to right.
+
+                               * row-reverse: Items are laid out right to left.
+
+                               * column: Items are laid out top to bottom.
+
+                               * column-reverse: Items are laid out bottom to top.
+               2. justify-content:-
+                         What it does:
+                                Aligns items along the main axis (horizontally by default).
+
+                         Possible values:
+
+                               * flex-start (default): Items align to the start of the container.
+
+                               * flex-end: Items align to the end of the container.
+
+                               * center: Items are centered along the main axis.
+
+                               * space-between: Equal space between items.
+
+                               * space-around: Equal space around items.
+
+                               * space-evenly: Equal space between and around items.                
+
+                3. align-items  :-
+                         What it does:
+                                  Aligns items along the cross axis (vertically by default when flex-direction: row).
+
+                         Possible values:
+
+                                   * stretch (default): Items stretch to fill the container.
+
+                                   * flex-start: Items align to the start of the cross axis.
+
+                                   * flex-end: Items align to the end of the cross axis.
+
+                                   * center: Items are centered along the cross axis.
+
+                                   * baseline: Items align based on their text baseline.               
+
+====================================================================================================================================================================================================================================================================
+
+                                                      * CSS Grid *
+
+  Question 1: Explain CSS Grid and how it differs from Flexbox. When would you use Grid over
+              Flexbox?
+  ANS      ==> CSS Grid:
+                   CSS Grid is a two-dimensional layout system in CSS, meaning it can handle both rows and columns at the same time. It gives you full control over the layout of web pages by allowing you to define a grid structure and place elements precisely within it.
+
+                   How CSS Grid Works:
+                                * You define a grid container using display: grid.
+                                * Inside it, you define grid rows and columns using properties like grid-template-rows and       grid-template-columns.
+                                * Child elements (called grid items) are placed on this grid using properties like grid-row, grid-column, or shorthand grid-area.
+                    
+ CSS Grid vs. Flexbox:-
+
+| Feature                | CSS Grid                          | Flexbox                                     |
+|------------------------|-----------------------------------|-------------------------------------------- |
+|   Layout Direction     | Two-dimensional (rows & columns)  | One-dimensional (row or column)             |
+|   Use Case             | Complex layouts (entire pages)    | Simpler, linear layouts (nav bars, buttons) |
+|   Control              | Full control over layout zones    | Content-driven and dynamic layout           |
+|   Item Placement       | Place items anywhere in grid      | Items flow naturally in one line            |
+
+          When to Use CSS Grid:-
+                     * When you need a grid-like layout, such as a photo gallery, dashboard, or entire page layout.
+
+                     * When the layout requires precise placement of elements in both rows and columns.
+
+                     * For complex responsive designs with content that spans multiple rows/columns.
+
+         When to Use Flexbox:-
+                     * When you need a simple layout along a single axis.
+
+                     * For component-level layouts, like aligning buttons, toolbars, or a navigation menu.
+
+                     * When the size of the content drives the layout (e.g., equal spacing between items).
+
+ Question 2: Describe the grid-template-columns, grid-template-rows, and grid-gap
+             properties. Provide examples of how to use them.
+
+ ANS     ==>1. grid-template-columns :-
+                   What it does:
+                       Defines the number and size of columns in a grid container.
+                    Syntax:
+                       grid-template-columns: value1 value2 ...;
+            Example:
+                .container {
+                             display: grid;
+                             grid-template-columns: 100px 200px 100px;
+                           }
+                             ==> This creates 3 columns: first 100px wide, second 200px, third 100px.
+            2. grid-template-rows :-
+                     What it does:
+                                 Defines the number and size of rows in a grid container.
+
+                     Syntax:
+                         grid-template-rows: value1 value2 ...;
+            Example:
+                  .container {
+                               display: grid;
+                               grid-template-rows: 100px 150px;
+                             }
+                            ==> Creates 2 rows: one 100px tall, another 150px tall.
+             
+             3. grid-gap  :-
+                     What it does:
+                              Adds space between rows and columns in a grid.
+
+                     Syntax:
+                          grid-gap: row-gap column-gap;
+             
+            Example:
+                            .container {
+                                        display: grid;
+                                        grid-template-columns: 1fr 1fr 1fr;
+                                        grid-gap: 20px;
+                                        }
+                                ==>Creates a 3-column layout with 20px space between all grid cells.
+
+====================================================================================================================================================================================================================================================================
+
+                                   * Responsive Web Design with Media Queries *
+
+
+Question 1: What are media queries in CSS, and why are they important for responsive
+            design?
+ANS     ==>
+           Media queries in CSS are a way to apply different styles to a webpage based on various conditions like screen size,    device orientation, or even the type of media (e.g., print vs. screen). They are crucial for responsive design because they allow websites to adapt to different devices and screen sizes, ensuring a consistent and optimal user experience. 
+
+
+           Why they are important:
+
+                           Adaptability: They allow websites to change their layout, font sizes, and other visual elements based on the device's characteristics. 
+
+                           Improved User Experience: By adapting to different screens, websites become more usable and enjoyable on various devices. 
+
+                           Accessibility: Media queries help ensure websites are accessible to users on different devices and with different needs. 
+
+                           Mobile-First Approach: They make it possible to create designs that are optimized for mobile first and then scale up for larger screens. 
+
+
+Question 2: Write a basic media query that adjusts the font size of a webpage for screens
+            smaller than 600px.
+
+ANS    ==>  
+          @media (max-width: 600px) {
+                                       body {
+
+                                              font-size: 14px;
+
+                                            }
+                                    }
+          Explanation:
+
+                     * @media (max-width: 600px): Targets devices with a screen width of 600px or less.
+
+                     * Inside the block, the font-size for the <body> is set to 14px, which is typically more suitable for small screens like mobile phones.
+
+
+====================================================================================================================================================================================================================================================================
+
+                                       *  Typography and Web Fonts *
+
+Question 1: Explain the difference between web-safe fonts and custom web fonts. Why
+            might you use a web-safe font over a custom font?
+
+ANS     ==>
+           1. Web-Safe Fonts
+                    Definition:-
+                                Web-safe fonts are pre-installed fonts that are available on most operating systems and browsers by default. They require no extra downloading, so they load quickly and display consistently across platforms.
+
+                    Examples:
+
+                           * Arial
+                           * Times New Roman
+                           * Verdana
+                           * Georgia
+                           * Courier New
+                           * Tahoma
+
+                    Pros:
+
+                            * Fast loading
+                            * High compatibility
+                            * No extra setup required
+
+                    Cons:
+
+                             *Limited variety and design flexibility
+
+                     2. Custom Web Fonts
+                                     Definition:-
+                                                Custom web fonts are external fonts that are not guaranteed to be on the user's system. They are loaded via web services (e.g., Google Fonts, Adobe Fonts) or self-hosted files using @font-face. 
+
+                    Pros:
+                         
+                         * Greater design flexibility
+                         * Helps create a unique brand identity
+
+                    Cons:
+
+                         * Slightly slower page load (fonts need to download)     
+                         * May cause a flash of unstyled text (FOUT)
+                         * Needs fallback fonts in case loading fails
+
+                  *  Why Use Web-Safe Fonts Over Custom Fonts?  
+                     
+                               Performance: Web-safe fonts don’t require downloading, so they load faster.
+
+                               Simplicity: No need for external font hosting or CSS setup.
+
+                               Compatibility: They are more reliable across older browsers and systems.
+
+                               Fewer dependencies: Works even without an internet connection to external font providers.
+
+   
+Question 2: What is the font-family property in CSS? How do you apply a custom Google
+            Font to a webpage?
+
+ANS     ==>
+           The font-family property in CSS is used to specify the typeface (font) for text content on a webpage.
+           It defines a list of fonts in order of preference — the browser uses the first available one.
+
+           Syntax:
+                 selector {
+                             font-family: "Font Name", fallback-font, generic-family;
+                          }
+            
+            * How to Apply a Custom Google Font to a Webpage
+
+             Step 1: Link the Font in HTML <head>:-
+               Go to Google Fonts, choose a font, and copy the <link> tag.
+
+               Example :
+                   
+                   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+            
+             Step 2: Use the Font in CSS 
+                                     
+                                      body {
+                                             font-family: 'Roboto', sans-serif;
+                                           }
+
+==================================================================================================================================
